@@ -1,3 +1,4 @@
+
 const images = [
   {
     url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260",
@@ -24,3 +25,17 @@ const images = [
     alt: "Lighthouse Coast Sea",
   }
 ];
+// Знайдемо контейнер галереї
+const gallery = document.querySelector('.gallery');
+
+// Створимо HTML-код для галереї за допомогою шаблонних рядків
+const galleryItems = images.map(image => {
+  return `
+    <li>
+      <img src="${image.url}" alt="${image.alt}">
+    </li>
+  `;
+}).join('');  // join('') об'єднує всі елементи в один рядок
+
+// Додаємо всі елементи до контейнера галереї за одну операцію
+gallery.insertAdjacentHTML('beforeend', galleryItems);
